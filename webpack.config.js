@@ -27,10 +27,28 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin(
             {
+                //好像没用
                 title:'全栈工程师的进阶路程',
+                //模板地址
                 template: './view/index.html',
+                //注入body
                 inject: 'body',
-                favicon:'./view/home.ico'
+                favicon:'./view/home.ico',
+                //文件名
+                filename: 'index.html',
+                hash: false,
+                // 这样每次客户端页面就会根据这个hash来判断页面是否有必要刷新
+                // 在项目后续过程中，经常需要做些改动更新什么的，一但有改动，客户端页面就会自动更新！
+                showErrors: true,
+			    // 是否将错误信息输出到html页面中
+                minify: {
+                    // 压缩HTML文件
+                    removeComments: true,
+                    // 移除HTML中的注释
+
+                    collapseWhitespace: true
+                    // 删除空白符与换行符
+                }
             }
         ),
         new webpack.DefinePlugin({
